@@ -49,7 +49,5 @@ You can use any libraries you can find in pub.dev or anywhere else.
 
 <br>
 You have been added to the Opun-Exercise firebase project. In the console's 'Project Overview' page, create a new app and follow the documentation / instructions to connect 
-
-<br>
 the flutter project to firestore (https://firebase.google.com/docs/flutter/setup). Save the business name, maximum capacity, and current count in firestore. Try to stream these values so that the UI is updated in real time if they change. 
 <br>
