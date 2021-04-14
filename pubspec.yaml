@@ -9,14 +9,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.1
-  font_awesome_flutter: any
+  cupertino_icons: ^1.0.0
+  font_awesome_flutter: ^8.10.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  integration_test:
-    sdk: flutter
+
+  integration_test: ^1.0.1
+    
 
 
 flutter:

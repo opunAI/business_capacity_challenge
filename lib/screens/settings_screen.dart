@@ -53,14 +53,14 @@ class SettingsScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(
-                  child: Text('back'),
-                  onPressed: () => Navigator.pop(context),
-                ),
-                ElevatedButton(
-                  child: Text('save'),
-                  onPressed: () => print('save pressed'),
-                ),
+                // ElevatedButton(
+                //   child: Text('back'),
+                //   onPressed: () => Navigator.pop(context),
+                // ),
+                // ElevatedButton(
+                //   child: Text('save'),
+                //   onPressed: () => print('save pressed'),
+                // ),
               ],
             )
           ],
