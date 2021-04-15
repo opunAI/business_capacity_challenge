@@ -13,6 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Capacity Counter',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.blue,
+      ),
       routes: {
         // default route:
         '/': (context) => WelcomeScreen(),

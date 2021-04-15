@@ -23,7 +23,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/
+    - assets/images/crowded.jpg
+    - assets/images/numbers_jumbled.png
   
   
   
