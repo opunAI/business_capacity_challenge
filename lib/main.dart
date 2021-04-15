@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:opun_challenge/screens/home_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'package:opun_challenge/screens/settings_screen.dart';
 import 'package:opun_challenge/screens/welcome_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
