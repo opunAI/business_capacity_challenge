@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:opun_challenge/util/app_style.dart';
+import 'package:opun_challenge/widgets/curve_clipper.dart';
 
 //TODO: improve design of the welcome screen
 
@@ -16,11 +17,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         child: Container(
           height: MediaQuery.of(context).size.height,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               ClipPath(
-                //clipper: CurveClipper(),
+                clipper: CurveClipper(),
                 child: Image.asset(
                   'assets/images/crowded.jpg',
                   height: MediaQuery.of(context).size.height / 2.5,
@@ -28,12 +29,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(height: 15),
+              SizedBox(height: 5),
               Text(
                 'Welcome to the Capacity Counter',
                 style: TextStyle(
                   color: Theme.of(context).primaryColor,
-                  fontSize: 30.0,
+                  fontSize: 34.0,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.0,
                 ),
@@ -47,6 +48,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   style: TextStyle(
                       fontSize: 15.0,
                       letterSpacing: 2.0,
+                      //height: 1.5,
                       fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
