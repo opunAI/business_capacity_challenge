@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class AuthBase {
   User get currentUser;
+  Stream<User> authStateChanges();
 }
 
 class Auth implements AuthBase {
