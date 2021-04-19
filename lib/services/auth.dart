@@ -12,4 +12,10 @@ class Auth implements AuthBase {
   @override
   User get currentUser => _firebaseAuth.currentUser;
 
+  @override
+  Future<void> signOut() async {
+
+  }
+
 }
+

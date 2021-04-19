@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class EmailSigninScreen extends StatelessWidget {
+class EmailSignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
