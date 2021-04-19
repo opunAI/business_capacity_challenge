@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => LandingPage(auth: Auth()),
         '/welcome': (context) => WelcomeScreen(),
         '/home': (context) => MyHomePage(title: 'Capacity Counter'),
-        '/settings': (context) => SettingsScreen(),
+        '/settings': (context) => SettingsScreen(auth: Auth()),
       },
     );
   }

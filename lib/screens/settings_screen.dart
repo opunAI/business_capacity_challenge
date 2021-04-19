@@ -1,14 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:opun_challenge/services/auth.dart';
 import 'package:opun_challenge/util/app_style.dart';
 
 // TODO: save these values and use them in the home screen
 
 class SettingsScreen extends StatelessWidget {
+  final AuthBase auth;
+
+  const SettingsScreen({Key key, @required this.auth}) : super(key: key);
+
+  Future<void> _signOut() async {
+    try {
+      await auth.signOut();
+    } catch (err) {
+      print(err.toString());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Settings Page'),
+        actions: <Widget>[
+          FlatButton(
+            child: Text(
+              'Logout',
+              style: TextStyle(
+                fontSize: 18.0,
+                color: Colors.white,
+              ),
+            ),
+            onPressed: _signOut,
+          ),
+        ],
       ),
       body: Center(
         child: Column(

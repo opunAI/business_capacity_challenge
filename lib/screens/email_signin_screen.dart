@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:opun_challenge/screens/email_signin_form.dart';
 import 'package:opun_challenge/services/auth.dart';
-import 'package:opun_challenge/widgets/curve_clipper.dart';
+
 
 class EmailSignInScreen extends StatelessWidget {
   final AuthBase auth;
@@ -24,7 +24,7 @@ class EmailSignInScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Card(
-            child: EmailSignInForm(),
+            child: EmailSignInForm(auth: auth),
         ),
       ),
       backgroundColor: Colors.grey[200],

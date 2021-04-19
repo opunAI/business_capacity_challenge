@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:opun_challenge/services/auth.dart';
 import 'package:opun_challenge/services/form_submit_button.dart';
 
 enum EmailSignInFormType { signIn, register }
 
 class EmailSignInForm extends StatefulWidget {
+  final AuthBase auth;
+
+  EmailSignInForm({@required this.auth});
+
   @override
   _EmailSignInFormState createState() => _EmailSignInFormState();
 }
@@ -13,10 +18,22 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  String get _email => _emailController.text;
+  String get _password => _passwordController.text;
+
   EmailSignInFormType _formType = EmailSignInFormType.signIn;
 
-  void _submit() {
-    print('email: ${_emailController.text}, password: ${_passwordController.text}');
+  void _submit() async {
+    try {
+      if (_formType == EmailSignInFormType.signIn) {
+        await widget.auth.signInWithEmailAndPassword(_email, _password);
+      } else {
+        await widget.auth.createUserWithEmailAndPassword(_email, _password);
+      }
+      Navigator.of(context).pushNamed('/welcome');
+    } catch (err) {
+      print(err.toString());
+    }
   }
 
   void _toggleFormType() {
@@ -28,8 +45,12 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   }
 
   List<Widget> _buildChildren() {
-    final primaryText = _formType == EmailSignInFormType.signIn ? 'Sign in' : 'Create an account';
-    final secondaryText = _formType == EmailSignInFormType.signIn ? 'Don\'t have an account? Click here' : 'Already have an account? Sign in';
+    final primaryText =
+    _formType == EmailSignInFormType.signIn ? 'Sign in' : 'Create an account';
+    final secondaryText =
+    _formType == EmailSignInFormType.signIn ? 'Don\'t have an account? Click here'
+        : 'Already have an account? Click here';
+
     return [
       TextField(
         controller: _emailController,
