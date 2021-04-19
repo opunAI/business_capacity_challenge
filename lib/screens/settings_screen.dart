@@ -7,6 +7,9 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Settings Page'),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -53,12 +56,24 @@ class SettingsScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                // RaisedButton(
+                //   child: Text(
+                //     'back',
+                //     style: TextStyle(
+                //       color: Colors.white,
+                //     ),
+                //   ),
+                //   color: Theme.of(context).primaryColor,
+                //   onPressed: () => Navigator.pop(context),
+                // ),
                 RaisedButton(
-                  child: Text('back'),
-                  onPressed: () => Navigator.pop(context),
-                ),
-                RaisedButton(
-                  child: Text('save'),
+                  child: Text(
+                    'save',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  color: Theme.of(context).primaryColor,
                   onPressed: () => print('save pressed'),
                 ),
               ],

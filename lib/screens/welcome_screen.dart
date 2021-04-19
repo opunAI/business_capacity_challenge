@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:opun_challenge/util/app_style.dart';
+//import 'package:opun_challenge/util/app_style.dart';
 import 'package:opun_challenge/widgets/curve_clipper.dart';
 
 //TODO: improve design of the welcome screen
