@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:opun_challenge/screens/email_signin_form.dart';
 import 'package:opun_challenge/services/auth.dart';
+import 'package:opun_challenge/widgets/curve_clipper.dart';
 
 class EmailSignInScreen extends StatelessWidget {
   final AuthBase auth;
@@ -9,15 +11,26 @@ class EmailSignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Sign In'),
+    appBar: AppBar(
+        title: Text(
+            'Sign In To The Capacity Counter',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        //toolbarHeight: 100,
         elevation: 2.0,
       ),
-      body: _buildContent(),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Card(
+            child: EmailSignInForm(),
+        ),
+      ),
+      backgroundColor: Colors.grey[200],
+
     );
+
   }
 
-  _buildContent() {
-    return Container();
-  }
 }
