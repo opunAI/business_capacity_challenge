@@ -46,7 +46,8 @@ class _NumberWheelState extends State<NumberWheel> {
               child: Image(
                   width: IMAGE_SIZE,
                   height: IMAGE_SIZE,
-                  image: AssetImage('assets/numbers_jumbled.png')),
+                  image: AssetImage('assets/images/numbers_jumbled.png')
+              ),
             ),
           ),
           Row(

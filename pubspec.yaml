@@ -13,6 +13,7 @@ dependencies:
   font_awesome_flutter: ^8.10.2
   firebase_core: ^0.5.1
   firebase_auth: ^0.18.2
+  flutter_spinning_wheel: ^1.1.0
 
 dev_dependencies:
   flutter_test:
