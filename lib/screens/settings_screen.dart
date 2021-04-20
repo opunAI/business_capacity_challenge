@@ -7,12 +7,13 @@ import 'package:opun_challenge/util/app_style.dart';
 class SettingsScreen extends StatelessWidget {
   final AuthBase auth;
 
-  const SettingsScreen({Key key, @required this.auth}) : super(key: key);
+  SettingsScreen({@required this.auth});
 
   Future<void> _signOut() async {
     try {
       await auth.signOut();
-    } catch (err) {
+    }
+    catch (err) {
       print(err.toString());
     }
   }
@@ -31,7 +32,7 @@ class SettingsScreen extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            onPressed: _signOut,
+            onPressed: _signOut
           ),
         ],
       ),
