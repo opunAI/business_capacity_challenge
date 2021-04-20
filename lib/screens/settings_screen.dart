@@ -25,88 +25,136 @@ class SettingsScreen extends StatelessWidget {
         title: Text('Settings Page'),
         actions: <Widget>[
           FlatButton(
-            child: Text(
-              'Logout',
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.white,
+              child: Text(
+                'Logout',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            onPressed: _signOut
+              onPressed: _signOut
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Settings', style: AppStyle.TITLE_TEXTSTYLE),
-            SizedBox(
-              height: 50,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Max Capacity:',
-                  style: AppStyle.BOLD_TEXTSTYLE,
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                SizedBox(
-                  width: 100,
-                  child: TextField(),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Business Name:',
-                  style: AppStyle.BOLD_TEXTSTYLE,
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                SizedBox(
-                  width: 100,
-                  child: TextField(),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                // RaisedButton(
-                //   child: Text(
-                //     'back',
-                //     style: TextStyle(
-                //       color: Colors.white,
-                //     ),
-                //   ),
-                //   color: Theme.of(context).primaryColor,
-                //   onPressed: () => Navigator.pop(context),
-                // ),
-                RaisedButton(
-                  child: Text(
-                    'save',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                  color: Theme.of(context).primaryColor,
-                  onPressed: () => print('save pressed'),
-                ),
-              ],
-            )
-          ],
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Card(
+          child: _buildContent(),
         ),
       ),
+      backgroundColor: Colors.grey[200],
     );
   }
-}
+    Widget _buildContent() {
+      return Container(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(40.0),
+              child:TextField(
+                decoration: InputDecoration(
+                  labelText: 'Business Name:'
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(40.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  labelText: 'Max Capacity:'
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(40.0),
+              child: RaisedButton(
+                child: Text(
+                  'save',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                color: Colors.blue,
+                onPressed: () => print('save pressed'),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+      //Center(
+      //   child: Column(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     children: [
+      //       Text('Settings', style: AppStyle.TITLE_TEXTSTYLE),
+      //       SizedBox(
+      //         height: 50,
+      //       ),
+      //       Row(
+      //         mainAxisAlignment: MainAxisAlignment.center,
+      //         children: [
+      //           Text(
+      //             'Max Capacity:',
+      //             style: AppStyle.BOLD_TEXTSTYLE,
+      //           ),
+      //           SizedBox(
+      //             width: 20,
+      //           ),
+      //           SizedBox(
+      //             width: 100,
+      //             child: TextField(),
+      //           ),
+      //         ],
+      //       ),
+      //       Row(
+      //         mainAxisAlignment: MainAxisAlignment.center,
+      //         children: [
+      //           Text(
+      //             'Business Name:',
+      //             style: AppStyle.BOLD_TEXTSTYLE,
+      //           ),
+      //           SizedBox(
+      //             width: 20,
+      //           ),
+      //           SizedBox(
+      //             width: 100,
+      //             child: TextField(),
+      //           ),
+      //         ],
+      //       ),
+      //       SizedBox(
+      //         height: 50,
+      //       ),
+      //       Row(
+      //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //         children: [
+      //           // RaisedButton(
+      //           //   child: Text(
+      //           //     'back',
+      //           //     style: TextStyle(
+      //           //       color: Colors.white,
+      //           //     ),
+      //           //   ),
+      //           //   color: Theme.of(context).primaryColor,
+      //           //   onPressed: () => Navigator.pop(context),
+      //           // ),
+      //           RaisedButton(
+      //             child: Text(
+      //               'save',
+      //               style: TextStyle(
+      //                 color: Colors.white,
+      //               ),
+      //             ),
+      //             color: Theme.of(context).primaryColor,
+      //             onPressed: () => print('save pressed'),
+      //           ),
+      //         ],
+      //       )
+      //     ],
+      //   ),
+      // ),
+
+  }
+
