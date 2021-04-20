@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:opun_challenge/services/auth.dart';
-import 'package:opun_challenge/services/form_submit_button.dart';
+import 'package:opun_challenge/widgets/form_submit_button.dart';
 
 enum EmailSignInFormType { signIn, register }
 
@@ -58,6 +58,8 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
           labelText: 'Email',
           hintText: 'email@example.com'
         ),
+        keyboardType: TextInputType.emailAddress,
+        textInputAction: TextInputAction.next,
       ),
       SizedBox(height: 40),
       TextField(
@@ -66,6 +68,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
             labelText: 'Password',
         ),
         obscureText: true,
+        textInputAction: TextInputAction.done,
       ),
       SizedBox(height: 40),
       FormSubmitButton(
