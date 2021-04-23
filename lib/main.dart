@@ -7,7 +7,7 @@ import 'package:opun_challenge/screens/landing_page.dart';
 import 'package:opun_challenge/screens/settings_screen.dart';
 import 'package:opun_challenge/screens/welcome_screen.dart';
 import 'package:opun_challenge/services/auth.dart';
-import 'package:opun_challenge/services/auth_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,8 +18,8 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AuthProvider(
-      auth: Auth(),
+    return Provider<AuthBase>(
+      create: (context) => Auth(),
       child: MaterialApp(
         title: 'Capacity Counter',
         debugShowCheckedModeBanner: false,

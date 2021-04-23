@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:opun_challenge/services/auth_provider.dart';
+import 'package:opun_challenge/services/auth.dart';
 import 'package:opun_challenge/util/app_style.dart';
+import 'package:provider/provider.dart';
 
 // TODO: save these values and use them in the home screen
 
@@ -8,7 +9,7 @@ class SettingsScreen extends StatelessWidget {
 
   Future<void> _signOut(BuildContext context) async {
     try {
-      final auth = AuthProvider.of(context);
+      final auth = Provider.of<AuthBase>(context, listen: false);
       await auth.signOut();
       Navigator.of(context).pushNamed('/signIn');;
     }

@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:opun_challenge/screens/email_signin_screen.dart';
 import 'package:opun_challenge/screens/settings_screen.dart';
 import 'package:opun_challenge/screens/welcome_screen.dart';
-import 'package:opun_challenge/services/auth_provider.dart';
+import 'package:opun_challenge/services/auth.dart';
+import 'package:provider/provider.dart';
+
 
 class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final auth = AuthProvider.of(context);
+    final auth = Provider.of<AuthBase>(context, listen: false);
 
     return StreamBuilder<User>(
       stream: auth.authStateChanges(),

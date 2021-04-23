@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:opun_challenge/screens/validators.dart';
 import 'package:opun_challenge/services/auth.dart';
-import 'package:opun_challenge/services/auth_provider.dart';
 import 'package:opun_challenge/widgets/form_submit_button.dart';
+import 'package:provider/provider.dart';
 
 enum EmailSignInFormType { signIn, register }
 
@@ -29,7 +29,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       _submitted = true;
     });
     try {
-      final auth = AuthProvider.of(context);
+      final auth = Provider.of<AuthBase>(context, listen: false);
       if (_formType == EmailSignInFormType.signIn) {
         await auth.signInWithEmailAndPassword(_email, _password);
       } else {
