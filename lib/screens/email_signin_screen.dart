@@ -4,9 +4,7 @@ import 'package:opun_challenge/services/auth.dart';
 
 
 class EmailSignInScreen extends StatelessWidget {
-  final AuthBase auth;
 
-  const EmailSignInScreen({Key key, @required this.auth}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,7 @@ class EmailSignInScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Card(
-            child: EmailSignInForm(auth: auth),
+            child: EmailSignInForm(),
         ),
       ),
       backgroundColor: Colors.grey[200],

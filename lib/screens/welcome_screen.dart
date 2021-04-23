@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:opun_challenge/services/auth.dart';
 //import 'package:opun_challenge/util/app_style.dart';
 import 'package:opun_challenge/widgets/curve_clipper.dart';
 
@@ -7,9 +6,6 @@ import 'package:opun_challenge/widgets/curve_clipper.dart';
 
 
 class WelcomeScreen extends StatelessWidget {
-  final AuthBase auth;
-
-  const WelcomeScreen({Key key, this.auth}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

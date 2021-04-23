@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:opun_challenge/services/auth.dart';
+import 'package:opun_challenge/services/auth_provider.dart';
 import 'package:opun_challenge/util/app_style.dart';
 
 // TODO: save these values and use them in the home screen
 
 class SettingsScreen extends StatelessWidget {
-  final AuthBase auth;
 
-  SettingsScreen({@required this.auth});
-
-  Future<void> _signOut() async {
+  Future<void> _signOut(BuildContext context) async {
     try {
+      final auth = AuthProvider.of(context);
       await auth.signOut();
+      Navigator.of(context).pushNamed('/signIn');;
     }
     catch (err) {
       print(err.toString());
@@ -32,7 +31,7 @@ class SettingsScreen extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              onPressed: _signOut
+              onPressed: () =>_signOut(context)
           ),
         ],
       ),
