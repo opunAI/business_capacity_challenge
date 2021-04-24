@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:opun_challenge/services/auth.dart';
-import 'package:opun_challenge/util/app_style.dart';
+import 'package:opun_challenge/services/database.dart';
 import 'package:provider/provider.dart';
 
 // TODO: save these values and use them in the home screen
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends StatefulWidget {
+  final Database database;
+
+  const SettingsScreen({Key key, this.database}) : super(key: key);
+
+  @override
+  _SettingsScreenState createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  final _formKey = GlobalKey<FormState>();
+
+  String _name;
+
+  int _maxCapacity;
 
   Future<void> _signOut(BuildContext context) async {
     try {
@@ -16,6 +30,22 @@ class SettingsScreen extends StatelessWidget {
     catch (err) {
       print(err.toString());
     }
+  }
+
+  bool _validateAndSaveForm() {
+    final form = _formKey.currentState;
+    if(form.validate()) {
+      form.save();
+      return true;
+    }
+    return false;
+  }
+
+  void _submit() {
+    if(_validateAndSaveForm()) {
+      print('form saved, name: $_name, max capacity: $_maxCapacity');
+    }
+    //TODO: Submit data to Firestore
   }
 
   @override
@@ -39,32 +69,36 @@ class SettingsScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Card(
-          child: _buildContent(),
+          child: _buildForm(),
         ),
       ),
       backgroundColor: Colors.grey[200],
     );
   }
-    Widget _buildContent() {
-      return Container(
+
+    Widget _buildForm() {
+      return Form(
+        key: _formKey,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(40.0),
-              child:TextField(
-                decoration: InputDecoration(
-                  labelText: 'Business Name:'
-                ),
+              child:TextFormField(
+                decoration: InputDecoration(labelText: 'Business Name:'),
+                validator: (value) => value.isNotEmpty ? null : 'Please give name of business',
+                onSaved: (value) => _name = value,
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(40.0),
-              child: TextField(
+              child: TextFormField(
                 decoration: InputDecoration(
-                  labelText: 'Max Capacity:'
+                  labelText: 'Max Capacity:',
                 ),
+                keyboardType: TextInputType.numberWithOptions(signed: false, decimal: false),
+                onSaved: (value) => _maxCapacity = int.tryParse(value) ?? 0,
               ),
             ),
             Padding(
@@ -77,84 +111,12 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
                 color: Colors.blue,
-                onPressed: () => print('save pressed'),
+                onPressed: _submit,
               ),
             ),
           ],
         ),
       );
     }
-      //Center(
-      //   child: Column(
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     children: [
-      //       Text('Settings', style: AppStyle.TITLE_TEXTSTYLE),
-      //       SizedBox(
-      //         height: 50,
-      //       ),
-      //       Row(
-      //         mainAxisAlignment: MainAxisAlignment.center,
-      //         children: [
-      //           Text(
-      //             'Max Capacity:',
-      //             style: AppStyle.BOLD_TEXTSTYLE,
-      //           ),
-      //           SizedBox(
-      //             width: 20,
-      //           ),
-      //           SizedBox(
-      //             width: 100,
-      //             child: TextField(),
-      //           ),
-      //         ],
-      //       ),
-      //       Row(
-      //         mainAxisAlignment: MainAxisAlignment.center,
-      //         children: [
-      //           Text(
-      //             'Business Name:',
-      //             style: AppStyle.BOLD_TEXTSTYLE,
-      //           ),
-      //           SizedBox(
-      //             width: 20,
-      //           ),
-      //           SizedBox(
-      //             width: 100,
-      //             child: TextField(),
-      //           ),
-      //         ],
-      //       ),
-      //       SizedBox(
-      //         height: 50,
-      //       ),
-      //       Row(
-      //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      //         children: [
-      //           // RaisedButton(
-      //           //   child: Text(
-      //           //     'back',
-      //           //     style: TextStyle(
-      //           //       color: Colors.white,
-      //           //     ),
-      //           //   ),
-      //           //   color: Theme.of(context).primaryColor,
-      //           //   onPressed: () => Navigator.pop(context),
-      //           // ),
-      //           RaisedButton(
-      //             child: Text(
-      //               'save',
-      //               style: TextStyle(
-      //                 color: Colors.white,
-      //               ),
-      //             ),
-      //             color: Theme.of(context).primaryColor,
-      //             onPressed: () => print('save pressed'),
-      //           ),
-      //         ],
-      //       )
-      //     ],
-      //   ),
-      // ),
-
-  }
+}
 

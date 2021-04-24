@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.blue,
         ),
         routes: {
-          // default route:
+          // default route
           '/': (context) => LandingPage(),
           '/welcome': (context) => WelcomeScreen(),
           '/home': (context) => MyHomePage(title: 'Capacity Counter'),
