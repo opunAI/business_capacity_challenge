@@ -7,6 +7,7 @@ import 'package:opun_challenge/screens/landing_page.dart';
 import 'package:opun_challenge/screens/settings_screen.dart';
 import 'package:opun_challenge/screens/welcome_screen.dart';
 import 'package:opun_challenge/services/auth.dart';
+import 'package:opun_challenge/services/database.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Provider<AuthBase>(
       create: (context) => Auth(),
-      child: MaterialApp(
+        child: MaterialApp(
         title: 'Capacity Counter',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

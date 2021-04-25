@@ -8,6 +8,16 @@ import 'package:provider/provider.dart';
 class SettingsScreen extends StatefulWidget {
   final Database database;
 
+  static Future<void> show(BuildContext context) async {
+    final database = Provider.of<Database>(context, listen: false);
+    await Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => SettingsScreen(),
+          fullscreenDialog: true,
+        ),
+    );
+  }
+
   const SettingsScreen({Key key, this.database}) : super(key: key);
 
   @override
@@ -45,7 +55,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if(_validateAndSaveForm()) {
       print('form saved, name: $_name, max capacity: $_maxCapacity');
     }
-    //TODO: Submit data to Firestore
+
   }
 
   @override

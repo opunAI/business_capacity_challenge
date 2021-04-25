@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:opun_challenge/screens/settings_screen.dart';
 import 'package:opun_challenge/widgets/number_wheel.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -89,8 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   IconButton(
                     icon: Icon(Icons.settings),
-                    onPressed: () =>
-                        Navigator.of(context).pushNamed('/settings'),
+                    onPressed: () => SettingsScreen.show(context),
                   )
                 ],
               ),
