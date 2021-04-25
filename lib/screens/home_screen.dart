@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:opun_challenge/models/business.dart';
 import 'package:opun_challenge/screens/settings_screen.dart';
 import 'package:opun_challenge/widgets/number_wheel.dart';
+import 'package:provider/provider.dart';
+import '../services/database.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -15,6 +18,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   void _incrementCounter(int inc) => setState(() => _counter += inc);
+
+  Future<void> _createBusiness(BuildContext context) async {
+    final database = Provider.of<Database>(context, listen: false);
+    await database.createBusiness(Business(name: 'Code4Blessings', maxCapacity: 40));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +50,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     IconButton(
                       icon: Icon(FontAwesomeIcons.userMinus),
                       onPressed: () => _incrementCounter(-1),
+                    ),
+                    FlatButton(
+                      child: Text('Add Data'),
+                      onPressed: () => _createBusiness(context),
                     ),
                     IconButton(
                       icon: Icon(FontAwesomeIcons.userPlus),
