@@ -87,11 +87,7 @@ class WelcomeScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  onPressed:  () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return MyHomePage();
-                    }));
-                  },
+                  onPressed:  () => Navigator.of(context).pushNamed('/home'),
                   color: Theme.of(context).primaryColor,
                 ),
               )

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:opun_challenge/models/business.dart';
 import 'package:opun_challenge/screens/settings_screen.dart';
+import 'package:opun_challenge/services/auth.dart';
 import 'package:opun_challenge/widgets/number_wheel.dart';
 import 'package:provider/provider.dart';
 import '../services/database.dart';
@@ -25,6 +26,17 @@ class _MyHomePageState extends State<MyHomePage> {
           Business(name: 'Code4Blessings', maxCapacity: 40));
   }
 
+  Future<void> _signOut(BuildContext context) async {
+    try {
+      final auth = Provider.of<AuthBase>(context, listen: false);
+      await auth.signOut();
+      Navigator.of(context).pushNamed('/signIn');;
+    }
+    catch (err) {
+      print(err.toString());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +53,10 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.settings),
             onPressed: () => SettingsScreen.show(context),
           ),
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () => _signOut(context),
+          )
         ],
       ),
       body: _buildContents(context),

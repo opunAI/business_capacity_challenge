@@ -34,16 +34,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   int _maxCapacity;
 
-  Future<void> _signOut(BuildContext context) async {
-    try {
-      final auth = Provider.of<AuthBase>(context, listen: false);
-      await auth.signOut();
-      Navigator.of(context).pushNamed('/signIn');;
-    }
-    catch (err) {
-      print(err.toString());
-    }
-  }
 
   bool _validateAndSaveForm() {
     final form = _formKey.currentState;
@@ -68,16 +58,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
       appBar: AppBar(
         title: Text('Settings Page'),
         actions: <Widget>[
-          FlatButton(
-              child: Text(
-                'Logout',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  color: Colors.white,
-                ),
-              ),
-              onPressed: () =>_signOut(context)
-          ),
+          // FlatButton(
+          //     child: Text(
+          //       'Logout',
+          //       style: TextStyle(
+          //         fontSize: 18.0,
+          //         color: Colors.white,
+          //       ),
+          //     ),
+          //     onPressed: () =>_signOut(context)
+          // ),
         ],
       ),
       body: Padding(
