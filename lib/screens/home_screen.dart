@@ -56,14 +56,66 @@ class _MyHomePageState extends State<MyHomePage> {
         if (snapshot.hasData){
           final businesses = snapshot.data;
           final children = businesses.map((business) =>
-              Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 15.0),
-                    child: Text(
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: Text(
                         business.name,
-                      style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    )
+                ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  // TODO: remove this counter and show capacity by animating number wheels
+                  Text(
+                    'Capacity:',
+                  ),
+                  Text(
+                    '$_counter',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      IconButton(
+                        icon: Icon(FontAwesomeIcons.userMinus),
+                        onPressed: () => _incrementCounter(-1),
+                      ),
+                      FlatButton(
+                        child: Text('Add Data'),
+                        onPressed: () => _createBusiness(context),
+                      ),
+                      IconButton(
+                        icon: Icon(FontAwesomeIcons.userPlus),
+                        onPressed: () => _incrementCounter(1),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: Container(
+                      height: MediaQuery.of(context).size.height * .5,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        border: Border.all(width: 2.0),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          NumberWheel(),
+                          NumberWheel(),
+                        ],
+                      ),
                     ),
-                  )
+                  ),
+                ],
+
               )
           ).toList();
           return ListView(children: children);

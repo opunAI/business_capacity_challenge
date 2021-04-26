@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:opun_challenge/screens/home_screen.dart';
 //import 'package:opun_challenge/util/app_style.dart';
 import 'package:opun_challenge/widgets/curve_clipper.dart';
 
@@ -86,7 +87,11 @@ class WelcomeScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  onPressed: () => Navigator.pushNamed(context, '/home'),
+                  onPressed:  () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return MyHomePage();
+                    }));
+                  },
                   color: Theme.of(context).primaryColor,
                 ),
               )
