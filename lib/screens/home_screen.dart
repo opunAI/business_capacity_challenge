@@ -55,7 +55,17 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (context, snapshot) {
         if (snapshot.hasData){
           final businesses = snapshot.data;
-          final children = businesses.map((business) => Text(business.name)).toList();
+          final children = businesses.map((business) =>
+              Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                    child: Text(
+                        business.name,
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  )
+              )
+          ).toList();
           return ListView(children: children);
         }
        if (snapshot.hasError) {
