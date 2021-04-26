@@ -8,6 +8,8 @@ abstract class Database {
   Stream<List<Business>> businessStream();
 }
 
+String documentIdFromCurrentDate() => DateTime.now().toIso8601String();
+
 class FirestoreDatabase implements Database {
   FirestoreDatabase({@required this.uid}) : assert(uid != null);
   final String uid;
@@ -15,7 +17,7 @@ class FirestoreDatabase implements Database {
   final _service = FirestoreService.instance;
 
   Future<void> createBusiness(Business business) => _service.setData(
-        path: APIPath.business(uid, 'business_abc'),
+        path: APIPath.business(uid, documentIdFromCurrentDate()),
         data: business.toMap(),
       );
 

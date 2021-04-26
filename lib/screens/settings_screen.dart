@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:opun_challenge/models/business.dart';
 import 'package:opun_challenge/services/auth.dart';
 import 'package:opun_challenge/services/database.dart';
 import 'package:provider/provider.dart';
@@ -6,19 +7,21 @@ import 'package:provider/provider.dart';
 // TODO: save these values and use them in the home screen
 
 class SettingsScreen extends StatefulWidget {
+  const SettingsScreen({Key key, this.database}) : super(key: key);
+
   final Database database;
 
   static Future<void> show(BuildContext context) async {
     final database = Provider.of<Database>(context, listen: false);
     await Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => SettingsScreen(),
+          builder: (context) => SettingsScreen(database: database),
           fullscreenDialog: true,
         ),
     );
   }
 
-  const SettingsScreen({Key key, this.database}) : super(key: key);
+
 
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
@@ -51,10 +54,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return false;
   }
 
-  void _submit() {
+  Future<void> _submit() async {
     if(_validateAndSaveForm()) {
-      //TODO: Submit data to Firestore
-      print('form saved, name: $_name, max capacity: $_maxCapacity');
+      final business = Business(name: _name, maxCapacity: _maxCapacity);
+      await widget.database.createBusiness(business);
     }
 
   }
