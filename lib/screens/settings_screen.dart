@@ -53,6 +53,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   void _submit() {
     if(_validateAndSaveForm()) {
+      //TODO: Submit data to Firestore
       print('form saved, name: $_name, max capacity: $_maxCapacity');
     }
 
