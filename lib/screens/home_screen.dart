@@ -16,21 +16,23 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   int _counter = 0;
   void _incrementCounter(int inc) => setState(() => _counter += inc);
 
-  Future<void> _createBusiness(BuildContext context) async {
-      final database = Provider.of<Database>(context, listen: false);
-      await database.createBusiness(
-          Business(name: 'Code4Blessings', maxCapacity: 40));
-  }
+  
+
+  // Future<void> _createBusiness(BuildContext context) async {
+  //     final database = Provider.of<Database>(context, listen: false);
+  //     await database.createBusiness(
+  //         Business(name: 'Code4Blessings', maxCapacity: 40));
+  // }
 
   Future<void> _signOut(BuildContext context) async {
     try {
       final auth = Provider.of<AuthBase>(context, listen: false);
       await auth.signOut();
-      Navigator.of(context).pushNamed('/signIn');;
+      Navigator.of(context).pushNamed('/signIn');
     }
     catch (err) {
       print(err.toString());
@@ -62,8 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: _buildContents(context),
     );
   }
-//It was challenging to incorporate the Firestore data around the UI so it was temporarily removed
-// Once the Firestaore data streams on the page, will re-build UI around it.
+
   Widget _buildContents(BuildContext context) {
     final database = Provider.of<Database>(context, listen: false);
     return StreamBuilder<List<Business>>(
@@ -102,10 +103,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         icon: Icon(FontAwesomeIcons.userMinus),
                         onPressed: () => _incrementCounter(-1),
                       ),
-                      FlatButton(
-                        child: Text('Add Data'),
-                        onPressed: () => _createBusiness(context),
-                      ),
+                      // FlatButton(
+                      //   child: Text('Add Data'),
+                      //   onPressed: () => _createBusiness(context),
+                      // ),
                       IconButton(
                         icon: Icon(FontAwesomeIcons.userPlus),
                         onPressed: () => _incrementCounter(1),
