@@ -12,15 +12,11 @@ class NumberWheel extends StatefulWidget {
   _NumberWheelState createState() => _NumberWheelState();
 }
 
-class _NumberWheelState extends State<NumberWheel>  with TickerProviderStateMixin{
+class _NumberWheelState extends State<NumberWheel>  {
   static const double IMAGE_SIZE = 120;
 
   Timer timer;
   double _angle = 0;
-
-  AnimationController _animatedController;
-
-
 
   @override
   void initState() {

@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:opun_challenge/models/business.dart';
 import 'package:opun_challenge/screens/settings_screen.dart';
 import 'package:opun_challenge/services/auth.dart';
+import 'package:opun_challenge/widgets/capacity_wheel.dart';
 import 'package:opun_challenge/widgets/number_wheel.dart';
 import 'package:provider/provider.dart';
 import '../services/database.dart';
@@ -125,8 +126,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          NumberWheel(),
-                          NumberWheel(),
+                          CapacityWheel(),
+                          //CapacityWheel(),
                         ],
                       ),
                     ),

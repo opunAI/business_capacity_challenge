@@ -30,6 +30,8 @@ flutter:
   assets:
     - assets/images/crowded.jpg
     - assets/images/numbers_jumbled.png
+    - assets/images/pointer.png
+    -
   
   
   
