@@ -61,14 +61,14 @@ This was a challenging yet exciting project to work on.  Basically every page wa
 
 ## SignIn Page
 
-This page was added to the app because of the task involving Cloud Firestore.  The task was make the save button, on the settings page, functional in that the name of the business would not only<br>
-populate on the home page, but would also be saved to Cloud Firestore.  Such a feature did not sound like something that every user could share only.  Therefore it was decided that all data<br>
-pertaining to the business should be specific its user.  
+This page was added to the app because of the task involving Cloud Firestore.  The task was to make the save button, on the settings page, functional in that the name of the business would not only<br>
+populate on the home page, but would also be saved to Cloud Firestore.  Such a feature did not sound like something that every user could share.  Therefore it was decided that all data,<br>
+pertaining to the business, should be specific its user.  
 
 ## Welcome Page
 
-The task here was to design this page.  The idea behind this business was to put out the message of social distancing.  Therefore the message had to be conveyed through the image that was so clear,<br>
-no words were needed .  Pictures of small amounts of people, walking through a building, was considered but then you will wonder, what exactly is the message here?  Then an image of a crowded ares<br>
+The task here was to design this page.  The idea behind this business was to put out the message of social distancing.  Therefore, the message had to be conveyed through the image that was so clear,<br>
+no words were needed.  Pictures of small amounts of people, walking through a building, was considered but then you will wonder, what exactly is the message here?  But an image of a crowded area,<br>
 where everyone is wearing a mask, would definitely bring the idea of, or rather the need for social distancing to mind.  
 
 ## Settings Page
