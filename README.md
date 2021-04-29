@@ -77,8 +77,20 @@ This page started out with a simple form with two spaces for the user's name for
 an app bar was added as it came with its own back button.  The form was redone so that it matched the SignIn page complete with validation and OnSave features.  The save button was given a submit functionality.<br>
 Once the button is pressed, the name of the business will appear on the home page and the data will be saved to Cloud Firestore.
 
-**Important Note**
+**Important Note**<br>
 If this is a new account, nothing will appear on the home page except the app bar.  Once the data is entered in the settings page, all of the UI will populate on the homepage.  
+
+## MyHomePage and Issues to be Solved
+
+This page was a challenge to build and is still a work in progress.  The database was completed and attached to this page via the Provider Package.  Unfortunately, this caused quite a few bugs to surface. <br>
+Now, when you press the 'continue' button on the welcome page, this will take you to a red screen with the error message "Cannot access provider package."  A **temporary fix** for this is a hot restart and then <br>
+the home page will appear.  The logout button will take you back to the signIn page but the page will have a back button on the app bar.  Pressing the back button will give you the actual signIn page<br>
+<br>
+The NumberWheel widgets were replaced with the wheel from flutter_spinning_wheel package.  The size of the wheel image now needs to be adjusted in order to make room for the other wheel.  The start button and <br>
+and the reader needs to be moved outside of the container and placed where the capacity counter is located.  Another issue, to solve, is the position of the arrow on the wheel.  The number read from the wheel<br>
+doesn't match what the arrow is pointing to.  The color animation also needs to be implemented.  If time allows, the approach to this will be to add a ternary statement for the background color of the <br>
+container.  The statement will say that if the capacity is less than or equal to the max capacity, then apply _greenColorAnimation, else: apply _redColorAnimation.  These color animations will be wrapped in an opacity animation<br>
+with the animation controller set to repeat to give it a blinking effect. This addition can only be implemented once a solution is found to fix the bugs pertaining to the spinning wheel.
 
 
 
