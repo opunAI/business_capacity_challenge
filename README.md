@@ -89,7 +89,7 @@ the home page will appear.  The logout button will take you back to the signIn p
 The NumberWheel widgets were replaced with the wheel from flutter_spinning_wheel package.  The size of the wheel image now needs to be adjusted in order to make room for the other wheel.  The start button and <br>
 and the reader needs to be moved outside of the container and placed where the capacity counter is located.  Another issue, to solve, is the position of the arrow on the wheel.  The number read from the wheel<br>
 doesn't match what the arrow is pointing to.  The color animation also needs to be implemented.  If time allows, the approach to this will be to add a ternary statement for the background color of the <br>
-container.  The statement will say that if the capacity is less than or equal to the max capacity, then apply _greenColorAnimation, else: apply _redColorAnimation.  These color animations will be wrapped in an opacity animation<br>
+container.  The statement will say that if the capacity is less than or equal to the max capacity, then apply _greenColorAnimation, else: apply _redColorAnimation.  These color animations will be wrapped in an opacity animation
 with the animation controller set to repeat to give it a blinking effect. This addition can only be implemented once a solution is found to fix the bugs pertaining to the spinning wheel.
 
 
