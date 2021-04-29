@@ -73,8 +73,12 @@ where everyone is wearing a mask, would definitely bring the idea of, or rather 
 
 ## Settings Page
 
-This page started out with 
+This page started out with a simple form with two spaces for the user's name for the business and its maximum capacity along with a back button and a save button.  The back button was done away with and <br>
+an app bar was added as it came with its own back button.  The form was redone so that it matched the SignIn page complete with validation and OnSave features.  The save button was given a submit functionality.<br>
+Once the button is pressed, the name of the business will appear on the home page and the data will be saved to Cloud Firestore.
 
+**Important Note**
+If this is a new account, nothing will appear on the home page except the app bar.  Once the data is entered in the settings page, all of the UI will populate on the homepage.  
 
 
 
